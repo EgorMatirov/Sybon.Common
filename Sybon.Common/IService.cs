@@ -1,8 +1,11 @@
-﻿using DasMulli.Win32.ServiceUtils;
+﻿using System;
 
 namespace Sybon.Common
 {
-    public interface IService : IWin32Service
+    public interface IService
     {
+        string ServiceName { get; }
+        void Start(string[] startupArguments, Action serviceStoppedCallback);
+        void Stop();
     }
 }
